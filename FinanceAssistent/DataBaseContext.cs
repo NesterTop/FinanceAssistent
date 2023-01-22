@@ -23,8 +23,10 @@ namespace FinanceAssistent
 
         public void Open()
         {
-            _connection.Open();
+            Users.Clear();
+            TipDohoda.Clear();
 
+            _connection.Open();
             _sqlCommand = new SqlCommand();
 
             _sqlCommand.CommandText = "select * from TipDohoda";
@@ -57,6 +59,11 @@ namespace FinanceAssistent
             _reader.Close();
         }
 
+        public void Close()
+        {
+            _connection.Close();
+        }
+
         public void SaveChanges()
         {
             char c = '"';
@@ -66,15 +73,16 @@ namespace FinanceAssistent
             _sqlCommand.CommandText = $"DELETE FROM {c}User{c}";
             _sqlCommand.ExecuteNonQuery();
 
-            for(int i = 0; i < Users.Count; i++)
+            for (int i = 0; i < Users.Count; i++)
             {
-                _sqlCommand.CommandText = $"INSERT INTO {c}User{c} VALUES({Users[i].Id},'{Users[i].Login}','{Users[i].Password}')";
+
+                _sqlCommand.CommandText = $"INSERT INTO {c}User{c} VALUES({i},'{Users[i].Login}','{Users[i].Password}')";
                 _sqlCommand.ExecuteNonQuery();
             }
 
             for (int i = 0; i < TipDohoda.Count; i++)
             {
-                _sqlCommand.CommandText = $"INSERT INTO TipDohoda VALUES({TipDohoda[i].Id},'{TipDohoda[i].Nazvanie}')";
+                _sqlCommand.CommandText = $"INSERT INTO TipDohoda VALUES({i},'{TipDohoda[i].Nazvanie}')";
                 _sqlCommand.ExecuteNonQuery();
             }
         }

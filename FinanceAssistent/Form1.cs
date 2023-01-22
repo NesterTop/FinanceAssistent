@@ -24,9 +24,8 @@ namespace FinanceAssistent
             string connectionString = @"Data Source=DESKTOP-AVGELME\STP; Initial Catalog=DataBase; Integrated Security=True";
 
             DataBaseContext dataBaseContext = new DataBaseContext(connectionString);
-
             dataBaseContext.Open();
-
+            
             
 
             dataGridView1.DataSource = dataBaseContext.TipDohoda;
