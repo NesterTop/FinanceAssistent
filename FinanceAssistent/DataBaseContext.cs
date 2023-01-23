@@ -10,9 +10,10 @@ namespace FinanceAssistent
 {
     public class DataBaseContext
     {
-        SqlCommand _sqlCommand;
-        SqlConnection _connection;
-        SqlDataReader _reader = null;
+        private SqlDataReader _reader;
+        private SqlCommand _sqlCommand;
+        private SqlConnection _connection;
+        
         public List<User> Users = new List<User>();
         public List<TipDohoda> TipDohoda = new List<TipDohoda>();
 
