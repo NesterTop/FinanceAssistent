@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data;
 using System.Data.SqlClient;
 
 namespace FinanceAssistent
@@ -24,9 +23,22 @@ namespace FinanceAssistent
             string connectionString = @"Data Source=DESKTOP-AVGELME\STP; Initial Catalog=DataBase; Integrated Security=True";
 
             DataBaseContext dataBaseContext = new DataBaseContext(connectionString);
-            dataBaseContext.Open();
-            
-            
+            //dataBaseContext.Open();
+
+            dataBaseContext.TipDohoda.Add(new TipDohoda()
+            {
+                Id = 1,
+                Nazvanie = "Зарплата"
+
+            }); ;
+            dataBaseContext.TipDohoda.Add(new TipDohoda()
+            {
+                Id = 2,
+                Nazvanie = "Подработка"
+
+            });
+
+            //dataBaseContext.SaveChanges();
 
             dataGridView1.DataSource = dataBaseContext.TipDohoda;
         }
