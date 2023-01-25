@@ -24,7 +24,7 @@ namespace FinanceAssistent
             _sqlConnection.Close();
         }
 
-        public DataTable GetData(string sql)
+        public DataTable SelectData(string sql)
         {
             DataSet dataSet = new DataSet();
             SqlDataAdapter adapter = new SqlDataAdapter();
@@ -34,5 +34,12 @@ namespace FinanceAssistent
             
             return dataSet.Tables[0];
         }
+
+        public void InsertData(string sql)
+        {
+            SqlCommand command = new SqlCommand(sql, _sqlConnection);
+            command.ExecuteNonQuery();
+        }
+
     }
 }

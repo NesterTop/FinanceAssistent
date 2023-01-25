@@ -23,35 +23,56 @@ namespace FinanceAssistent
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
             dataBase.ConnectionString = connectionString;
             dataBase.Open();
-
-            dataGridView1.DataSource = dataBase.GetData(Queries.SelectQueries.TipDohoda);
-
+            dataGridView1.DataSource = dataBase.SelectData(Queries.SelectQueries.TipDohoda);
             
         }
-
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
+
             switch (e.Node.Text)
             {
                 case "Доход":
-                    dataGridView1.DataSource = dataBase.GetData(Queries.SelectQueries.TipDohoda);
+                    dataGridView1.DataSource = dataBase.SelectData(Queries.SelectQueries.Dohod);
                     break;
                 case "Тип дохода":
-                    dataGridView1.DataSource = dataBase.GetData(Queries.SelectQueries.TipDohoda);
+                    dataGridView1.DataSource = dataBase.SelectData(Queries.SelectQueries.TipDohoda);
                     break;
                 case "Расход":
-                    dataGridView1.DataSource = dataBase.GetData(Queries.SelectQueries.TipDohoda);
+                    dataGridView1.DataSource = dataBase.SelectData(Queries.SelectQueries.Rashod);
                     break;
                 case "Тип расхода":
-                    dataGridView1.DataSource = dataBase.GetData(Queries.SelectQueries.TipRashoda);
+                    dataGridView1.DataSource = dataBase.SelectData(Queries.SelectQueries.TipRashoda);
                     break;
                 case "Семья":
-                    dataGridView1.DataSource = dataBase.GetData(Queries.SelectQueries.TipDohoda);
+                    dataGridView1.DataSource = dataBase.SelectData(Queries.SelectQueries.Semya);
                     break;
             }
 
+        }
+
+        private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            switch (treeView1.SelectedNode.Text)
+            {
+                case "Доход":
+                    
+                    break;
+                case "Тип дохода":
+                    
+                    break;
+                case "Расход":
+                    
+                    break;
+                case "Тип расхода":
+                    
+                    break;
+                case "Семья":
+                    
+                    break;
+            }
         }
     }
 }
