@@ -10,18 +10,12 @@ namespace FinanceAssistent
 {
     public class DataBase
     {
-        SqlCommand _sqlCommand;
-        SqlConnection _sqlConnection;
-        SqlDataReader _reader;
-        
-
-        public DataBase(string connectionString)
-        {
-            _sqlConnection = new SqlConnection(connectionString);
-        }
+        public string ConnectionString { get; set; }
+        SqlConnection _sqlConnection = new SqlConnection();
 
         public void Open()
         {
+            _sqlConnection.ConnectionString = this.ConnectionString;
             _sqlConnection.Open();
         }
 
@@ -30,14 +24,15 @@ namespace FinanceAssistent
             _sqlConnection.Close();
         }
 
-        public DataSet GetTipDohoda()
+        public DataTable GetData(string sql)
         {
             DataSet dataSet = new DataSet();
             SqlDataAdapter adapter = new SqlDataAdapter();
 
-            adapter.SelectCommand = new SqlCommand("select nazvanie as Название from TipDohoda", _sqlConnection);
+            adapter.SelectCommand = new SqlCommand(sql, _sqlConnection);
             adapter.Fill(dataSet);
-            return dataSet;
+            
+            return dataSet.Tables[0];
         }
     }
 }

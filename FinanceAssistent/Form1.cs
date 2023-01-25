@@ -13,6 +13,9 @@ namespace FinanceAssistent
 {
     public partial class Form1 : Form
     {
+        DataBase dataBase = new DataBase();
+        string connectionString = @"Data Source=DESKTOP-AVGELME\STP; Initial Catalog=DataBase; Integrated Security=True";
+
         public Form1()
         {
             InitializeComponent();
@@ -20,12 +23,35 @@ namespace FinanceAssistent
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string connectionString = @"Data Source=DESKTOP-AVGELME\STP; Initial Catalog=DataBase; Integrated Security=True";
-
-            DataBase dataBase = new DataBase(connectionString);
+            dataBase.ConnectionString = connectionString;
             dataBase.Open();
 
-            dataGridView1.DataSource = dataBase.GetTipDohoda().Tables[0];   
+            dataGridView1.DataSource = dataBase.GetData(Queries.SelectQueries.TipDohoda);
+
+            
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            switch (e.Node.Text)
+            {
+                case "Доход":
+                    dataGridView1.DataSource = dataBase.GetData(Queries.SelectQueries.TipDohoda);
+                    break;
+                case "Тип дохода":
+                    dataGridView1.DataSource = dataBase.GetData(Queries.SelectQueries.TipDohoda);
+                    break;
+                case "Расход":
+                    dataGridView1.DataSource = dataBase.GetData(Queries.SelectQueries.TipDohoda);
+                    break;
+                case "Тип расхода":
+                    dataGridView1.DataSource = dataBase.GetData(Queries.SelectQueries.TipRashoda);
+                    break;
+                case "Семья":
+                    dataGridView1.DataSource = dataBase.GetData(Queries.SelectQueries.TipDohoda);
+                    break;
+            }
+
         }
     }
 }
