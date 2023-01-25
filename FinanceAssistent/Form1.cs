@@ -23,12 +23,10 @@ namespace FinanceAssistent
         {
             string connectionString = @"Data Source=DESKTOP-AVGELME\STP; Initial Catalog=DataBase; Integrated Security=True";
 
-            DataBaseContext dataBaseContext = new DataBaseContext(connectionString);
-            dataBaseContext.Open();
-            
-            
+            DataBase dataBase = new DataBase(connectionString);
+            dataBase.Open();
 
-            dataGridView1.DataSource = dataBaseContext.TipDohoda;
+            dataGridView1.DataSource = dataBase.GetTipDohoda().Tables[0];   
         }
     }
 }
