@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace FinanceAssistent
 {
-    public class DataBase
+    public class DataBase : IDisposable
     {
         public string ConnectionString { get; set; }
         SqlConnection _sqlConnection = new SqlConnection();
@@ -35,10 +35,15 @@ namespace FinanceAssistent
             return dataSet.Tables[0];
         }
 
-        public void InsertData(string sql)
+        public void InsertOrDeleteData(string sql)
         {
             SqlCommand command = new SqlCommand(sql, _sqlConnection);
             command.ExecuteNonQuery();
+        }
+
+        public void Dispose()
+        {
+            Close();
         }
     }
 }

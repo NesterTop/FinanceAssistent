@@ -28,16 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Тип дохода");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Доход", new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Тип расхода");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Расход", new System.Windows.Forms.TreeNode[] {
-            treeNode3});
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Семья");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Тип дохода");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Доход", new System.Windows.Forms.TreeNode[] {
+            treeNode6});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Тип расхода");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Расход", new System.Windows.Forms.TreeNode[] {
+            treeNode8});
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Семья");
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -62,20 +65,20 @@
             this.treeView1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.treeView1.Location = new System.Drawing.Point(12, 27);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Узел1";
-            treeNode1.Text = "Тип дохода";
-            treeNode2.Name = "Узел0";
-            treeNode2.Text = "Доход";
-            treeNode3.Name = "Узел3";
-            treeNode3.Text = "Тип расхода";
-            treeNode4.Name = "Узел2";
-            treeNode4.Text = "Расход";
-            treeNode5.Name = "Узел0";
-            treeNode5.Text = "Семья";
+            treeNode6.Name = "Узел1";
+            treeNode6.Text = "Тип дохода";
+            treeNode7.Name = "Узел0";
+            treeNode7.Text = "Доход";
+            treeNode8.Name = "Узел3";
+            treeNode8.Text = "Тип расхода";
+            treeNode9.Name = "Узел2";
+            treeNode9.Text = "Расход";
+            treeNode10.Name = "Узел0";
+            treeNode10.Text = "Семья";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2,
-            treeNode4,
-            treeNode5});
+            treeNode7,
+            treeNode9,
+            treeNode10});
             this.treeView1.ShowLines = false;
             this.treeView1.Size = new System.Drawing.Size(359, 167);
             this.treeView1.TabIndex = 2;
@@ -83,12 +86,39 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.Location = new System.Drawing.Point(377, 27);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(391, 422);
+            this.dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridView1.Size = new System.Drawing.Size(395, 422);
             this.dataGridView1.TabIndex = 3;
             // 
             // menuStrip1
@@ -99,7 +129,7 @@
             this.отчетToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(784, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(784, 25);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -108,16 +138,17 @@
             this.действияСТаблицейToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.добавитьToolStripMenuItem,
             this.удалитьДанныеToolStripMenuItem});
+            this.действияСТаблицейToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.действияСТаблицейToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("действияСТаблицейToolStripMenuItem.Image")));
             this.действияСТаблицейToolStripMenuItem.Name = "действияСТаблицейToolStripMenuItem";
-            this.действияСТаблицейToolStripMenuItem.Size = new System.Drawing.Size(150, 20);
+            this.действияСТаблицейToolStripMenuItem.Size = new System.Drawing.Size(165, 21);
             this.действияСТаблицейToolStripMenuItem.Text = "Действия с таблицей";
             // 
             // добавитьToolStripMenuItem
             // 
             this.добавитьToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("добавитьToolStripMenuItem.Image")));
             this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
-            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.добавитьToolStripMenuItem.Text = "Добавить данные";
             this.добавитьToolStripMenuItem.Click += new System.EventHandler(this.добавитьToolStripMenuItem_Click);
             // 
@@ -125,7 +156,7 @@
             // 
             this.удалитьДанныеToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("удалитьДанныеToolStripMenuItem.Image")));
             this.удалитьДанныеToolStripMenuItem.Name = "удалитьДанныеToolStripMenuItem";
-            this.удалитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.удалитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.удалитьДанныеToolStripMenuItem.Text = "Удалить данные";
             // 
             // графикToolStripMenuItem
@@ -133,50 +164,52 @@
             this.графикToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.построитьГрафикДоходовToolStripMenuItem,
             this.построитьГрафикРасходовToolStripMenuItem});
+            this.графикToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.графикToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("графикToolStripMenuItem.Image")));
             this.графикToolStripMenuItem.Name = "графикToolStripMenuItem";
-            this.графикToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
+            this.графикToolStripMenuItem.Size = new System.Drawing.Size(81, 21);
             this.графикToolStripMenuItem.Text = "График";
             // 
             // построитьГрафикДоходовToolStripMenuItem
             // 
             this.построитьГрафикДоходовToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("построитьГрафикДоходовToolStripMenuItem.Image")));
             this.построитьГрафикДоходовToolStripMenuItem.Name = "построитьГрафикДоходовToolStripMenuItem";
-            this.построитьГрафикДоходовToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.построитьГрафикДоходовToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
             this.построитьГрафикДоходовToolStripMenuItem.Text = "Построить график доходов";
             // 
             // построитьГрафикРасходовToolStripMenuItem
             // 
             this.построитьГрафикРасходовToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("построитьГрафикРасходовToolStripMenuItem.Image")));
             this.построитьГрафикРасходовToolStripMenuItem.Name = "построитьГрафикРасходовToolStripMenuItem";
-            this.построитьГрафикРасходовToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.построитьГрафикРасходовToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
             this.построитьГрафикРасходовToolStripMenuItem.Text = "Построить график расходов";
             // 
             // отчетToolStripMenuItem
             // 
             this.отчетToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.сформироватьОтчетToolStripMenuItem});
+            this.отчетToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.отчетToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("отчетToolStripMenuItem.Image")));
             this.отчетToolStripMenuItem.Name = "отчетToolStripMenuItem";
-            this.отчетToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.отчетToolStripMenuItem.Size = new System.Drawing.Size(70, 21);
             this.отчетToolStripMenuItem.Text = "Отчет";
             // 
             // сформироватьОтчетToolStripMenuItem
             // 
             this.сформироватьОтчетToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("сформироватьОтчетToolStripMenuItem.Image")));
             this.сформироватьОтчетToolStripMenuItem.Name = "сформироватьОтчетToolStripMenuItem";
-            this.сформироватьОтчетToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.сформироватьОтчетToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.сформироватьОтчетToolStripMenuItem.Text = "Сформировать отчет";
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
             this.chart1.Location = new System.Drawing.Point(-1, -1);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(363, 249);
             this.chart1.TabIndex = 5;
             this.chart1.Text = "chart1";
@@ -200,6 +233,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.menuStrip1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Финансовый помошник";

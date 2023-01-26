@@ -24,11 +24,13 @@ namespace FinanceAssistent
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            FormAuth formAuth = new FormAuth(this);
+            formAuth.Show();
             dataBase.ConnectionString = connectionString;
             dataBase.Open();
             dataGridView1.DataSource = dataBase.SelectData(Queries.SelectQueries.TipDohoda);
-            
         }
+
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
 

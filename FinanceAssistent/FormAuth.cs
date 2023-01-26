@@ -10,16 +10,129 @@ using System.Windows.Forms;
 
 namespace FinanceAssistent
 {
+
     public partial class FormAuth : Form
     {
+        Form form;
+
+        string result = "";
+        string str = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm1234567890";
+        public FormAuth(Form form)
+        {
+            this.form = form;
+            form.Enabled = false;
+            InitializeComponent();
+        }
         public FormAuth()
         {
             InitializeComponent();
         }
 
+        private void FormAuth_Load(object sender, EventArgs e)
+        {
+            this.TopMost = true;
+            this.ChangeDisigne();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
+            bool state = false;
+            string login = textBox1.Text;
+            string password = textBox2.Text;
 
+            if (textBox3.Text != result)
+            {
+                MessageBox.Show("Попробуйте еще раз ввести капчу");
+                return;
+            }
+
+            using (DataBase db = new DataBase())
+            {
+                db.ConnectionString = @"Data Source=DESKTOP-AVGELME\STP; Initial Catalog=DataBase; Integrated Security=True";
+                db.Open();
+                DataTable table = db.SelectData(Queries.SelectQueries.Users);
+
+                for(int i = 0; i < table.Rows.Count; i++)
+                {
+                    for(int j = 0; j < table.Rows[i].ItemArray.Length; j++)
+                    {
+                        string checkLog = table.Rows[i].ItemArray[1].ToString();
+                        string checkPass = table.Rows[i].ItemArray[2].ToString();
+                        if (login == checkLog && password == checkPass)
+                        {
+                            state = true;
+                        }
+                    }
+                }
+                
+            }
+
+            if (state)
+            {
+                form.Enabled = true;
+                this.Close();
+            }
+
+            else
+                MessageBox.Show("Пользователя с таким логином или паролем не существует");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FormReg formReg = new FormReg();
+            formReg.Show();
+            this.Close();
+            
+        }
+
+        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+            char[] chars = str.ToCharArray();
+            Random random = new Random();
+
+            for(int i = 1; i <= 5; i++)
+            {
+                result += chars[random.Next(0, chars.Length)];
+            }
+
+            using (Font myFont = new Font("Arial", 20, FontStyle.Bold))
+            {
+                Point[] points2 =
+                {
+                    new Point(0, 20),
+                    new Point(20, 10),
+                    new Point(40, 20),
+                    new Point(60, 10),
+                    new Point(80, 20),
+                    new Point(100, 10),
+                };
+
+                Point[] points1 =
+                {
+                    new Point(0, 30),
+                    new Point(20, 20),
+                    new Point(40, 30),
+                    new Point(60, 20),
+                    new Point(80, 30),
+                    new Point(100, 20),
+                };
+                
+                Point[] points3 =
+                {
+                    new Point(0, 40),
+                    new Point(20, 30),
+                    new Point(40, 40),
+                    new Point(60, 30),
+                    new Point(80, 40),
+                    new Point(100, 30),
+                };
+                
+                e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+                e.Graphics.DrawString(result, myFont, Brushes.Green, new Point(10, pictureBox1.Height/4));
+                e.Graphics.DrawCurve(new Pen(Color.Red, (float)1.5), points1);
+                e.Graphics.DrawCurve(new Pen(Color.Red, (float)1.5), points2);
+                e.Graphics.DrawCurve(new Pen(Color.Red, (float)1.5), points3);
+            }
         }
     }
 }
