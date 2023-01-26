@@ -13,6 +13,7 @@ namespace FinanceAssistent
 {
     public partial class Form1 : Form
     {
+        
         DataBase dataBase = new DataBase();
         string connectionString = @"Data Source=DESKTOP-AVGELME\STP; Initial Catalog=DataBase; Integrated Security=True";
 
@@ -23,7 +24,6 @@ namespace FinanceAssistent
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
             dataBase.ConnectionString = connectionString;
             dataBase.Open();
             dataGridView1.DataSource = dataBase.SelectData(Queries.SelectQueries.TipDohoda);
@@ -74,5 +74,6 @@ namespace FinanceAssistent
                     break;
             }
         }
+
     }
 }

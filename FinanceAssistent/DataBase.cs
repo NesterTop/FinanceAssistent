@@ -40,6 +40,5 @@ namespace FinanceAssistent
             SqlCommand command = new SqlCommand(sql, _sqlConnection);
             command.ExecuteNonQuery();
         }
-
     }
 }

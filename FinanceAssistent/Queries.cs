@@ -10,17 +10,21 @@ namespace FinanceAssistent
     {
         public static class SelectQueries
         {
-            public static readonly string User = $"select * from Users";
+            public static readonly string Users = @"select * from Users";
 
-            public static readonly string TipDohoda = "select nazvanie as Название from TipDohoda";
+            public static readonly string TipDohoda = @"select nazvanie as Название from TipDohoda";
 
-            public static readonly string TipRashoda = "select nazvanie as Название from TipRashoda";
+            public static readonly string TipRashoda = @"select nazvanie as Название from TipRashoda";
 
-            public static readonly string Dohod = $"select * from Dohod";
+            public static readonly string Dohod = @"select TipDohoda.nazvanie as 'Тип дохода', Semya.name as 'Член семьи', Dohod.summa as Сумма, Dohod.data as Дата 
+                                                    from Dohod, TipDohoda, Semya 
+                                                    where Dohod.id_tip_dohoda = TipDohoda.id and Dohod.id_semya = Semya.id";
 
-            public static readonly string Rashod = $"select * from Rashod";
+            public static readonly string Rashod = @"select TipRashoda.nazvanie as 'Тип расхода', Semya.name as 'Член семьи', Rashod.summa as Сумма, Rashod.data as Дата 
+                                                    from Rashod, Semya, TipRashoda 
+                                                    where Rashod.id_tip_rashoda = TipRashoda.id and Rashod.id_semya = Semya.id";
 
-            public static readonly string Semya = $"select semya.name as 'Член семьи', users.name as 'Имя пользователя' from Semya, Users where semya.id_user = users.id";
+            public static readonly string Semya = @"select semya.name as 'Член семьи', users.name as 'Имя пользователя' from Semya, Users where semya.id_user = users.id";
         }
 
         public static class InsertQueries
