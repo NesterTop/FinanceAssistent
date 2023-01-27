@@ -13,7 +13,6 @@ namespace FinanceAssistent
 {
     public partial class Form1 : Form
     {
-        
         DataBase dataBase = new DataBase();
         string connectionString = @"Data Source=DESKTOP-AVGELME\STP; Initial Catalog=DataBase; Integrated Security=True";
 
@@ -24,7 +23,8 @@ namespace FinanceAssistent
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            FormAuth formAuth = new FormAuth(this);
+        FormAuth formAuth = new FormAuth(this);
+
             formAuth.Show();
             dataBase.ConnectionString = connectionString;
             dataBase.Open();
@@ -62,15 +62,21 @@ namespace FinanceAssistent
                 case "Доход":
                     
                     break;
+                
                 case "Тип дохода":
-                    
+                    FormTipDohoda formTipDohoda = new FormTipDohoda(dataGridView1);
+                    formTipDohoda.Show();
                     break;
+                
                 case "Расход":
                     
                     break;
+                
                 case "Тип расхода":
-                    
+                    FormTipRashoda formTipRashoda = new FormTipRashoda(dataGridView1);
+                    formTipRashoda.Show();
                     break;
+                
                 case "Семья":
                     
                     break;

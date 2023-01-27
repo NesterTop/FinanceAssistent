@@ -10,7 +10,7 @@ namespace FinanceAssistent
 {
     public class DataBase : IDisposable
     {
-        public string ConnectionString { get; set; }
+        public string ConnectionString { get; set; } = @"Data Source=DESKTOP-AVGELME\STP; Initial Catalog=DataBase; Integrated Security=True";
         SqlConnection _sqlConnection = new SqlConnection();
 
         public void Open()
