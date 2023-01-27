@@ -31,6 +31,7 @@ namespace FinanceAssistent
         private void FormAuth_Load(object sender, EventArgs e)
         {
             this.TopMost = true;
+            SetCaptcha();
             this.ChangeDisigne();
         }
 
@@ -43,6 +44,7 @@ namespace FinanceAssistent
             if (textBox3.Text != result)
             {
                 MessageBox.Show("Попробуйте еще раз ввести капчу");
+                SetCaptcha();
                 return;
             }
 
@@ -85,15 +87,24 @@ namespace FinanceAssistent
             
         }
 
-        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        private void SetStringCaptcha()
         {
+            result = "";
             char[] chars = str.ToCharArray();
             Random random = new Random();
 
-            for(int i = 1; i <= 5; i++)
+            for (int i = 1; i <= 5; i++)
             {
                 result += chars[random.Next(0, chars.Length)];
             }
+        }
+
+        private void SetCaptcha()
+        {
+            Bitmap bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            Graphics g = Graphics.FromImage(bitmap);
+
+            SetStringCaptcha();
 
             using (Font myFont = new Font("Arial", 20, FontStyle.Bold))
             {
@@ -116,7 +127,7 @@ namespace FinanceAssistent
                     new Point(80, 30),
                     new Point(100, 20),
                 };
-                
+
                 Point[] points3 =
                 {
                     new Point(0, 40),
@@ -127,11 +138,14 @@ namespace FinanceAssistent
                     new Point(100, 30),
                 };
                 
-                e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-                e.Graphics.DrawString(result, myFont, Brushes.Green, new Point(10, pictureBox1.Height/4));
-                e.Graphics.DrawCurve(new Pen(Color.Red, (float)1.5), points1);
-                e.Graphics.DrawCurve(new Pen(Color.Red, (float)1.5), points2);
-                e.Graphics.DrawCurve(new Pen(Color.Red, (float)1.5), points3);
+                g.Clear(Color.Black);
+                g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+                g.DrawString(result, myFont, Brushes.Green, new Point(0, pictureBox1.Height / 4));
+                g.DrawCurve(new Pen(Color.Red, (float)1.5), points1);
+                g.DrawCurve(new Pen(Color.Red, (float)1.5), points2);
+                g.DrawCurve(new Pen(Color.Red, (float)1.5), points3);
+
+                pictureBox1.Image = bitmap;
             }
         }
     }
