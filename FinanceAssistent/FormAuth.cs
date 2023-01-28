@@ -17,6 +17,9 @@ namespace FinanceAssistent
 
         string result = "";
         string str = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm1234567890";
+
+        int clicks = 0;
+
         public FormAuth(Form form)
         {
             this.form = form;
@@ -30,6 +33,7 @@ namespace FinanceAssistent
 
         private void FormAuth_Load(object sender, EventArgs e)
         {
+            
             this.TopMost = true;
             SetCaptcha();
             this.ChangeDisigne();
@@ -37,9 +41,19 @@ namespace FinanceAssistent
 
         private void button1_Click(object sender, EventArgs e)
         {
+            clicks += 1;
             bool state = false;
             string login = textBox1.Text;
             string password = textBox2.Text;
+            
+            if (clicks >= 3)
+            {
+                MessageBox.Show("Повторите попытку через 5 секунд");
+                button1.Enabled = false;
+                timer1.Interval = 5000;
+                timer1.Start();
+                return;
+            }
 
             if (textBox3.Text != result)
             {
@@ -50,7 +64,6 @@ namespace FinanceAssistent
 
             using (DataBase db = new DataBase())
             {
-                db.ConnectionString = @"Data Source=DESKTOP-AVGELME\STP; Initial Catalog=DataBase; Integrated Security=True";
                 db.Open();
                 DataTable table = db.SelectData(Queries.SelectQueries.Users);
 
@@ -68,6 +81,8 @@ namespace FinanceAssistent
                 }
                 
             }
+
+            
 
             if (state)
             {
@@ -147,6 +162,13 @@ namespace FinanceAssistent
 
                 pictureBox1.Image = bitmap;
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            button1.Enabled = true;
+            clicks = 0;
+            timer1.Stop();
         }
     }
 }

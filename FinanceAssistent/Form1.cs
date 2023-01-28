@@ -14,7 +14,7 @@ namespace FinanceAssistent
     public partial class Form1 : Form
     {
         DataBase dataBase = new DataBase();
-        string connectionString = @"Data Source=DESKTOP-AVGELME\STP; Initial Catalog=DataBase; Integrated Security=True";
+        
 
         public Form1()
         {
@@ -26,9 +26,7 @@ namespace FinanceAssistent
         FormAuth formAuth = new FormAuth(this);
 
             formAuth.Show();
-            dataBase.ConnectionString = connectionString;
             dataBase.Open();
-            dataGridView1.DataSource = dataBase.SelectData(Queries.SelectQueries.TipDohoda);
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)

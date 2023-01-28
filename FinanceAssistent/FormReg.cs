@@ -32,7 +32,6 @@ namespace FinanceAssistent
             {
                 using (DataBase db = new DataBase())
                 {
-                    db.ConnectionString = @"Data Source=DESKTOP-AVGELME\STP; Initial Catalog=DataBase; Integrated Security=True";
                     db.Open();
                     db.InsertOrDeleteData(Queries.InsertQueries.GetUserInsertSQL(login, password, name));
                 }
