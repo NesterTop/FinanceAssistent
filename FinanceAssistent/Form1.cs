@@ -15,7 +15,6 @@ namespace FinanceAssistent
     {
         DataBase dataBase = new DataBase();
         
-
         public Form1()
         {
             InitializeComponent();
@@ -58,7 +57,8 @@ namespace FinanceAssistent
             switch (treeView1.SelectedNode.Text)
             {
                 case "Доход":
-                    
+                    FormDohod formDohod = new FormDohod(dataGridView1);
+                    formDohod.Show();
                     break;
                 
                 case "Тип дохода":
@@ -81,6 +81,7 @@ namespace FinanceAssistent
                     break;
             }
         }
+
         private void изменитьДанныеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             switch (treeView1.SelectedNode.Text)
@@ -107,12 +108,5 @@ namespace FinanceAssistent
                     break;
             }
         }
-
-        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            MessageBox.Show(dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
-        }
-
-        
     }
 }

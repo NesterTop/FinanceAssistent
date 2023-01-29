@@ -29,6 +29,7 @@ namespace FinanceAssistent
                 {
                     comboBox1.Items.Add(dt.Rows[i][3]);
                 }
+
             }
             this.ChangeDisigne();
         }

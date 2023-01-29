@@ -78,6 +78,12 @@
     <Compile Include="FormAuth.Designer.cs">
       <DependentUpon>FormAuth.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDohod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDohod.Designer.cs">
+      <DependentUpon>FormDohod.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormExtension.cs" />
     <Compile Include="FormReg.cs">
       <SubType>Form</SubType>
@@ -117,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAuth.resx">
       <DependentUpon>FormAuth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDohod.resx">
+      <DependentUpon>FormDohod.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormReg.resx">
       <DependentUpon>FormReg.cs</DependentUpon>

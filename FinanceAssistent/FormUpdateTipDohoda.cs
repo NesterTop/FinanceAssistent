@@ -36,10 +36,13 @@ namespace FinanceAssistent
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string name = comboBox1.SelectedItem.ToString();
+            string rename = textBox1.Text;
+            
             using (DataBase db = new DataBase())
             {
                 db.Open();
-                db.InsertOrDeleteData(Queries.UpdateQueries.GetTipDohodaUpdateSQL(comboBox1.SelectedItem.ToString(), textBox1.Text));
+                db.InsertOrDeleteData(Queries.UpdateQueries.GetTipDohodaUpdateSQL(name, rename));
                 dataGrid.DataSource = db.SelectData(Queries.SelectQueries.TipDohoda);
             }
         }
