@@ -46,7 +46,7 @@ namespace FinanceAssistent
 
             public static string GetSemyaInsertSQL(int idUser, string name)
             {
-                return $"insert into Semya values('{idUser}' '{name}')";
+                return $"insert into Semya values({idUser}, '{name}')";
             }
 
             public static string GetDohodInsertSQL(int idTipDohoda, int idSemya, double summa, string data)
@@ -57,6 +57,14 @@ namespace FinanceAssistent
             public static string GetRashodInsertSQL(int idTipDohoda, int idSemya, double summa, string data)
             {
                 return $"insert into Rashod values({idTipDohoda}, {idSemya}, {summa}, '{data}')";
+            }
+        }
+
+        public static class UpdateQueries
+        {
+            public static string GetTipDohodaUpdateSQL(string oldName, string newName)
+            {
+                return $"update TipDohoda set nazvanie = '{newName}' where nazvanie = '{oldName}'";
             }
         }
     }

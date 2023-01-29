@@ -23,10 +23,10 @@ namespace FinanceAssistent
 
         private void Form1_Load(object sender, EventArgs e)
         {
-        FormAuth formAuth = new FormAuth(this);
-
-            formAuth.Show();
+            //FormAuth formAuth = new FormAuth(this);
+            //formAuth.Show();
             dataBase.Open();
+            
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
@@ -76,10 +76,43 @@ namespace FinanceAssistent
                     break;
                 
                 case "Семья":
-                    
+                    FormSemya formSemya = new FormSemya(dataGridView1);
+                    formSemya.Show();
+                    break;
+            }
+        }
+        private void изменитьДанныеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            switch (treeView1.SelectedNode.Text)
+            {
+                case "Доход":
+
+                    break;
+
+                case "Тип дохода":
+                    FormUpdateTipDohoda formUpdateTipDohoda = new FormUpdateTipDohoda(dataGridView1);
+                    formUpdateTipDohoda.Show();
+                    break;
+
+                case "Расход":
+
+                    break;
+
+                case "Тип расхода":
+
+                    break;
+
+                case "Семья":
+
                     break;
             }
         }
 
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            MessageBox.Show(dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+        }
+
+        
     }
 }

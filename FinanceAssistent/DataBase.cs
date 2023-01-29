@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace FinanceAssistent
 {
     public class DataBase : IDisposable
     {
-        public string ConnectionString { get; set; } = @"Data Source=DESKTOP-A9MP2FF\SQLEXPRESS;Initial Catalog=DataBase;Integrated Security=True";
+        public string ConnectionString { get; set; } = @"Data Source=DESKTOP-AVGELME\STP;Initial Catalog=DataBase;Integrated Security=True";
         SqlConnection _sqlConnection = new SqlConnection();
 
         public void Open()
@@ -38,7 +39,14 @@ namespace FinanceAssistent
         public void InsertOrDeleteData(string sql)
         {
             SqlCommand command = new SqlCommand(sql, _sqlConnection);
-            command.ExecuteNonQuery();
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch
+            {
+                MessageBox.Show("Не удалось выполнить действие");
+            }
         }
 
         public void Dispose()

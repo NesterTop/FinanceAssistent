@@ -85,6 +85,12 @@
     <Compile Include="FormReg.Designer.cs">
       <DependentUpon>FormReg.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSemya.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSemya.Designer.cs">
+      <DependentUpon>FormSemya.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTipDohoda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,12 @@
     </Compile>
     <Compile Include="FormTipRashoda.Designer.cs">
       <DependentUpon>FormTipRashoda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpdateTipDohoda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdateTipDohoda.Designer.cs">
+      <DependentUpon>FormUpdateTipDohoda.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -109,11 +121,17 @@
     <EmbeddedResource Include="FormReg.resx">
       <DependentUpon>FormReg.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSemya.resx">
+      <DependentUpon>FormSemya.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormTipDohoda.resx">
       <DependentUpon>FormTipDohoda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTipRashoda.resx">
       <DependentUpon>FormTipRashoda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdateTipDohoda.resx">
+      <DependentUpon>FormUpdateTipDohoda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
