@@ -21,6 +21,18 @@ namespace FinanceAssistent
         {
             this.ChangeDisigne();
         }
+        
+        public bool CheckNumsInName(string str)
+        {
+            for(int i = 0; i < str.Length; i++)
+            {
+                if (char.IsNumber(str, i))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {

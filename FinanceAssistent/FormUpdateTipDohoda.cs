@@ -45,6 +45,7 @@ namespace FinanceAssistent
                 db.InsertOrDeleteData(Queries.UpdateQueries.GetTipDohodaUpdateSQL(name, rename));
                 dataGrid.DataSource = db.SelectData(Queries.SelectQueries.TipDohoda);
             }
+            this.Close();
         }
     }
 }
