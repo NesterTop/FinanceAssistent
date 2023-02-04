@@ -34,13 +34,31 @@ namespace FinanceAssistent
             return true;
         }
 
+        public bool CheckRegistration(string log, string pass, string nam)
+        {
+            string login = log;
+            string password = pass;
+            string name = nam;
+
+            if (login != "" && password != "" && name != "")
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Поля не могут быть пустыми");
+                return false;
+            }
+        }
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             string login = textBox1.Text;
             string password = textBox2.Text;
             string name = textBox3.Text;
-            
-            if(login != "" && password != "" && name != "")
+
+            if (CheckRegistration(textBox1.Text, textBox2.Text, textBox3.Text))
             {
                 using (DataBase db = new DataBase())
                 {
@@ -49,12 +67,6 @@ namespace FinanceAssistent
                 }
                 this.Close();
             }
-            else
-            {
-                MessageBox.Show("Поля не могут быть пустыми");
-            }
-
-            
         }
 
         private void FormReg_FormClosed(object sender, FormClosedEventArgs e)

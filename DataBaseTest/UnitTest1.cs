@@ -16,11 +16,10 @@ namespace DataBaseTest
             string name = "";
             bool expected = false;
             bool actual;
-            using (DataBase db = new DataBase())
-            {
-                db.Open();
-                actual = db.InsertOrDeleteData(Queries.InsertQueries.GetUserInsertSQL(login, password, name));
-            }
+
+            FormReg formReg = new FormReg();
+            actual = formReg.CheckRegistration(login, password, name);
+
             Assert.AreEqual(expected, actual);
         }
 
@@ -31,6 +30,7 @@ namespace DataBaseTest
             bool expected = false;
             FormReg formReg = new FormReg();
             bool actual = formReg.CheckNumsInName(str);
+
             Assert.AreEqual(expected, actual);
         }
 
@@ -39,6 +39,19 @@ namespace DataBaseTest
     [TestClass]
     public class DataBaseConnectionTest
     {
-        
+        [TestMethod]
+        public void DataBase_ClosedConnection_TrueReturned()
+        {
+            bool expected = true;
+            bool actual;
+
+            using(DataBase db = new DataBase())
+            {
+                db.Open();
+                actual = db.Close();
+            }
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
