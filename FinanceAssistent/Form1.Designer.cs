@@ -47,14 +47,24 @@
             this.действияСТаблицейToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.изменитьДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.графикToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.построитьГрафикДоходовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.построитьГрафикРасходовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сформироватьОтчетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.найтиТоварToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.изменитьДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.загрузитьДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.заГодToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.заМесяцToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.заДеньToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.заГодToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.заМесяцToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.заДеньToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.заНеделюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.заНеделюToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -126,7 +136,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.действияСТаблицейToolStripMenuItem,
             this.графикToolStripMenuItem,
-            this.отчетToolStripMenuItem});
+            this.отчетToolStripMenuItem,
+            this.найтиТоварToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(784, 25);
@@ -160,6 +171,14 @@
             this.удалитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.удалитьДанныеToolStripMenuItem.Text = "Удалить данные";
             // 
+            // изменитьДанныеToolStripMenuItem
+            // 
+            this.изменитьДанныеToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("изменитьДанныеToolStripMenuItem.Image")));
+            this.изменитьДанныеToolStripMenuItem.Name = "изменитьДанныеToolStripMenuItem";
+            this.изменитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.изменитьДанныеToolStripMenuItem.Text = "Изменить данные";
+            this.изменитьДанныеToolStripMenuItem.Click += new System.EventHandler(this.изменитьДанныеToolStripMenuItem_Click);
+            // 
             // графикToolStripMenuItem
             // 
             this.графикToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -173,6 +192,11 @@
             // 
             // построитьГрафикДоходовToolStripMenuItem
             // 
+            this.построитьГрафикДоходовToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.заГодToolStripMenuItem,
+            this.заМесяцToolStripMenuItem,
+            this.заНеделюToolStripMenuItem,
+            this.заДеньToolStripMenuItem});
             this.построитьГрафикДоходовToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("построитьГрафикДоходовToolStripMenuItem.Image")));
             this.построитьГрафикДоходовToolStripMenuItem.Name = "построитьГрафикДоходовToolStripMenuItem";
             this.построитьГрафикДоходовToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
@@ -180,6 +204,11 @@
             // 
             // построитьГрафикРасходовToolStripMenuItem
             // 
+            this.построитьГрафикРасходовToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.заГодToolStripMenuItem1,
+            this.заМесяцToolStripMenuItem1,
+            this.заНеделюToolStripMenuItem1,
+            this.заДеньToolStripMenuItem1});
             this.построитьГрафикРасходовToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("построитьГрафикРасходовToolStripMenuItem.Image")));
             this.построитьГрафикРасходовToolStripMenuItem.Name = "построитьГрафикРасходовToolStripMenuItem";
             this.построитьГрафикРасходовToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
@@ -188,19 +217,28 @@
             // отчетToolStripMenuItem
             // 
             this.отчетToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.загрузитьДанныеToolStripMenuItem,
             this.сформироватьОтчетToolStripMenuItem});
             this.отчетToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.отчетToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("отчетToolStripMenuItem.Image")));
             this.отчетToolStripMenuItem.Name = "отчетToolStripMenuItem";
-            this.отчетToolStripMenuItem.Size = new System.Drawing.Size(70, 21);
-            this.отчетToolStripMenuItem.Text = "Отчет";
+            this.отчетToolStripMenuItem.Size = new System.Drawing.Size(84, 21);
+            this.отчетToolStripMenuItem.Text = "Данные";
             // 
             // сформироватьОтчетToolStripMenuItem
             // 
             this.сформироватьОтчетToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("сформироватьОтчетToolStripMenuItem.Image")));
             this.сформироватьОтчетToolStripMenuItem.Name = "сформироватьОтчетToolStripMenuItem";
-            this.сформироватьОтчетToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.сформироватьОтчетToolStripMenuItem.Text = "Сформировать отчет";
+            this.сформироватьОтчетToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.сформироватьОтчетToolStripMenuItem.Text = "Выгрузить данные";
+            // 
+            // найтиТоварToolStripMenuItem
+            // 
+            this.найтиТоварToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("найтиТоварToolStripMenuItem.Image")));
+            this.найтиТоварToolStripMenuItem.Name = "найтиТоварToolStripMenuItem";
+            this.найтиТоварToolStripMenuItem.Size = new System.Drawing.Size(103, 21);
+            this.найтиТоварToolStripMenuItem.Text = "Найти товар";
+            this.найтиТоварToolStripMenuItem.Click += new System.EventHandler(this.найтиТоварToolStripMenuItem_Click);
             // 
             // chart1
             // 
@@ -224,13 +262,60 @@
             this.panel1.Size = new System.Drawing.Size(359, 249);
             this.panel1.TabIndex = 6;
             // 
-            // изменитьДанныеToolStripMenuItem
+            // загрузитьДанныеToolStripMenuItem
             // 
-            this.изменитьДанныеToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("изменитьДанныеToolStripMenuItem.Image")));
-            this.изменитьДанныеToolStripMenuItem.Name = "изменитьДанныеToolStripMenuItem";
-            this.изменитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.изменитьДанныеToolStripMenuItem.Text = "Изменить данные";
-            this.изменитьДанныеToolStripMenuItem.Click += new System.EventHandler(this.изменитьДанныеToolStripMenuItem_Click);
+            this.загрузитьДанныеToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("загрузитьДанныеToolStripMenuItem.Image")));
+            this.загрузитьДанныеToolStripMenuItem.Name = "загрузитьДанныеToolStripMenuItem";
+            this.загрузитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.загрузитьДанныеToolStripMenuItem.Text = "Загрузить данные";
+            // 
+            // заГодToolStripMenuItem
+            // 
+            this.заГодToolStripMenuItem.Name = "заГодToolStripMenuItem";
+            this.заГодToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.заГодToolStripMenuItem.Text = "За год";
+            // 
+            // заМесяцToolStripMenuItem
+            // 
+            this.заМесяцToolStripMenuItem.Name = "заМесяцToolStripMenuItem";
+            this.заМесяцToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.заМесяцToolStripMenuItem.Text = "За месяц";
+            // 
+            // заДеньToolStripMenuItem
+            // 
+            this.заДеньToolStripMenuItem.Name = "заДеньToolStripMenuItem";
+            this.заДеньToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.заДеньToolStripMenuItem.Text = "За день";
+            // 
+            // заГодToolStripMenuItem1
+            // 
+            this.заГодToolStripMenuItem1.Name = "заГодToolStripMenuItem1";
+            this.заГодToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.заГодToolStripMenuItem1.Text = "За год";
+            // 
+            // заМесяцToolStripMenuItem1
+            // 
+            this.заМесяцToolStripMenuItem1.Name = "заМесяцToolStripMenuItem1";
+            this.заМесяцToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.заМесяцToolStripMenuItem1.Text = "За месяц";
+            // 
+            // заДеньToolStripMenuItem1
+            // 
+            this.заДеньToolStripMenuItem1.Name = "заДеньToolStripMenuItem1";
+            this.заДеньToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.заДеньToolStripMenuItem1.Text = "За день";
+            // 
+            // заНеделюToolStripMenuItem
+            // 
+            this.заНеделюToolStripMenuItem.Name = "заНеделюToolStripMenuItem";
+            this.заНеделюToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.заНеделюToolStripMenuItem.Text = "За неделю";
+            // 
+            // заНеделюToolStripMenuItem1
+            // 
+            this.заНеделюToolStripMenuItem1.Name = "заНеделюToolStripMenuItem1";
+            this.заНеделюToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.заНеделюToolStripMenuItem1.Text = "За неделю";
             // 
             // Form1
             // 
@@ -272,6 +357,16 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripMenuItem изменитьДанныеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem найтиТоварToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem заГодToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem заМесяцToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem заДеньToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem заГодToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem заМесяцToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem загрузитьДанныеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem заНеделюToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem заНеделюToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem заДеньToolStripMenuItem1;
     }
 }
 

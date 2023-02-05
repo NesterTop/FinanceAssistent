@@ -34,13 +34,10 @@ namespace FinanceAssistent
 
         public DataTable SelectData(string sql)
         {
-            DataSet dataSet = new DataSet();
-            SqlDataAdapter adapter = new SqlDataAdapter();
-
-            adapter.SelectCommand = new SqlCommand(sql, _sqlConnection);
-            adapter.Fill(dataSet);
-            
-            return dataSet.Tables[0];
+            DataTable dt = new DataTable();
+            dt.Load(new SqlCommand(sql, _sqlConnection).ExecuteReader());
+                       
+            return dt;
         }
 
         public bool InsertOrDeleteData(string sql)

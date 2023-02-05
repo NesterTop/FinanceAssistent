@@ -22,8 +22,8 @@ namespace FinanceAssistent
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            FormAuth formAuth = new FormAuth(this);
-            formAuth.Show();
+            //FormAuth formAuth = new FormAuth(this);
+            //formAuth.Show();
             dataBase.Open();
             
         }
@@ -107,6 +107,12 @@ namespace FinanceAssistent
 
                     break;
             }
+        }
+
+        private void найтиТоварToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormSearch formSearch = new FormSearch();
+            formSearch.Show();
         }
     }
 }

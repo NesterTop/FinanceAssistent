@@ -66,6 +66,7 @@ namespace FinanceAssistent
             {
                 return $"update TipDohoda set nazvanie = '{newName}' where nazvanie = '{oldName}'";
             }
+            
         }
     }
 }
