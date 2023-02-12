@@ -33,7 +33,6 @@ namespace FinanceAssistent
 
         private void FormAuth_Load(object sender, EventArgs e)
         {
-            
             this.TopMost = true;
             SetCaptcha();
             this.ChangeDisigne();
@@ -41,7 +40,11 @@ namespace FinanceAssistent
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //DELETE
+            result = "";
+
             clicks += 1;
+            bool isAdmin = false;
             bool state = false;
             string login = textBox1.Text;
             string password = textBox2.Text;
@@ -73,9 +76,15 @@ namespace FinanceAssistent
                     {
                         string checkLog = table.Rows[i].ItemArray[1].ToString();
                         string checkPass = table.Rows[i].ItemArray[2].ToString();
+                        bool checkIsAdmin = (bool)table.Rows[i].ItemArray[4];
+
                         if (login == checkLog && password == checkPass)
                         {
                             state = true;
+                            if (checkIsAdmin)
+                            {
+                                isAdmin = true;
+                            }
                         }
                     }
                 }
@@ -86,6 +95,12 @@ namespace FinanceAssistent
 
             if (state)
             {
+                if (isAdmin)
+                {
+                    FormAdmin formAdmin = new FormAdmin();
+                    formAdmin.Show();
+                }
+
                 form.Enabled = true;
                 this.Close();
             }
