@@ -119,5 +119,18 @@ namespace FinanceAssistent
         {
             ExelExporter.ExportFromDataGridView(dataGridView1);
         }
+
+        private void построитьГрафикДоходовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            chart1.Series[0].Points.Clear();
+            chart1.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            chart1.Series[0].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+            var dt = dataBase.SelectData(Queries.SelectQueries.Dohod);
+            for(int i = 0; i < dt.Rows.Count; i++)
+            {
+                chart1.Series[0].Points[0].LegendText = dt.Rows[i][0].ToString();
+                chart1.Series[0].Points.Add((double)dt.Rows[i][2]);
+            }
+        }
     }
 }
