@@ -14,9 +14,12 @@ namespace FinanceAssistent
         public string ConnectionString { get; set; } = @"Data Source=DESKTOP-AVGELME\STP;Initial Catalog=DataBase;Integrated Security=True";
         SqlConnection _sqlConnection = new SqlConnection();
 
-        public void Open()
+        public DataBase()
         {
             _sqlConnection.ConnectionString = this.ConnectionString;
+        }
+        public void Open()
+        {
             _sqlConnection.Open();
         }
 
@@ -31,6 +34,8 @@ namespace FinanceAssistent
 
             return true;
         }
+
+        public SqlConnection GetConnection() { return _sqlConnection; }
 
         public DataTable SelectData(string sql)
         {

@@ -13,17 +13,20 @@ namespace FinanceAssistent
 {
     public partial class FormAdmin : Form
     {
+        DataBase dataBase;
+
         DataTable currentTable;
         SqlDataAdapter currentAdapter;
         
         DataBaseDataSetTableAdapters.TipRashodaTableAdapter TipRashodaTableAdapter = new DataBaseDataSetTableAdapters.TipRashodaTableAdapter();
         DataBaseDataSet.TipRashodaDataTable tipRashoda = new DataBaseDataSet.TipRashodaDataTable();
 
-        DataBaseDataSetTableAdapters.DohodTableAdapter DohodTableAdapter = new DataBaseDataSetTableAdapters.DohodTableAdapter();
-        DataBaseDataSet.DohodDataTable dohod = new DataBaseDataSet.DohodDataTable();
+        DataBaseDataSetTableAdapters.SemyaTableAdapter SemyaTableAdapter = new DataBaseDataSetTableAdapters.SemyaTableAdapter();
+        DataBaseDataSet.SemyaDataTable semya = new DataBaseDataSet.SemyaDataTable();
 
         public FormAdmin()
         {
+            dataBase = new DataBase();
             InitializeComponent();
         }
         private void FormAdmin_Load(object sender, EventArgs e)
@@ -31,6 +34,7 @@ namespace FinanceAssistent
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            TipRashodaTableAdapter.Adapter.SelectCommand = new SqlCommand("select * from TipRashoda", dataBase.GetConnection());
             TipRashodaTableAdapter.Adapter.UpdateCommand = new SqlCommandBuilder(TipRashodaTableAdapter.Adapter).GetUpdateCommand();
 
             TipRashodaTableAdapter.Fill(tipRashoda);
@@ -41,13 +45,16 @@ namespace FinanceAssistent
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            DohodTableAdapter.Adapter.UpdateCommand = new SqlCommandBuilder(DohodTableAdapter.Adapter).GetUpdateCommand();
+            SemyaTableAdapter.Adapter.SelectCommand = new SqlCommand("select Users.Name, Semya.Name from Semya, Users where Semya.id_user = Users.Id", dataBase.GetConnection());
+            SemyaTableAdapter.Adapter.UpdateCommand = new SqlCommandBuilder(SemyaTableAdapter.Adapter).GetUpdateCommand();
 
-            DohodTableAdapter.Fill(dohod);
-            dataGridView1.DataSource = dohod;
+            MessageBox.Show(SemyaTableAdapter.Adapter.UpdateCommand.CommandText);
+
+            SemyaTableAdapter.Fill(semya);
+            dataGridView1.DataSource = semya;
             
-            currentAdapter = DohodTableAdapter.Adapter;
-            currentTable = dohod;
+            currentAdapter = SemyaTableAdapter.Adapter;
+            currentTable = semya;
         }
 
         private void button3_Click(object sender, EventArgs e)

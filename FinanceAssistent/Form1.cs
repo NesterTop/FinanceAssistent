@@ -114,5 +114,10 @@ namespace FinanceAssistent
             FormSearch formSearch = new FormSearch();
             formSearch.Show();
         }
+
+        private void сформироватьОтчетToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExelExporter.ExportFromDataGridView(dataGridView1);
+        }
     }
 }
