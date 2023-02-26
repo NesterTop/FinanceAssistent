@@ -70,7 +70,7 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormTipDohoda";
-            this.Text = "Добавление типа дохода";
+            this.Text = "Добавление категории дохода";
             this.Load += new System.EventHandler(this.FormTipDohoda_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

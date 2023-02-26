@@ -45,6 +45,11 @@ namespace FinanceAssistent
             return dt;
         }
 
+        public object SelectScalar(string sql)
+        {
+            object result = new SqlCommand(sql, _sqlConnection).ExecuteScalar();
+            return result;
+        }
         public bool InsertOrDeleteData(string sql)
         {
             SqlCommand command = new SqlCommand(sql, _sqlConnection);

@@ -13,6 +13,7 @@ namespace FinanceAssistent
 {
     public partial class Form1 : Form
     {
+        bool gState = false;
         DataBase dataBase = new DataBase();
         
         public Form1()
@@ -36,13 +37,13 @@ namespace FinanceAssistent
                 case "Доход":
                     dataGridView1.DataSource = dataBase.SelectData(Queries.SelectQueries.Dohod);
                     break;
-                case "Тип дохода":
+                case "Категория дохода":
                     dataGridView1.DataSource = dataBase.SelectData(Queries.SelectQueries.TipDohoda);
                     break;
                 case "Расход":
                     dataGridView1.DataSource = dataBase.SelectData(Queries.SelectQueries.Rashod);
                     break;
-                case "Тип расхода":
+                case "Категория расхода":
                     dataGridView1.DataSource = dataBase.SelectData(Queries.SelectQueries.TipRashoda);
                     break;
                 case "Семья":
@@ -57,20 +58,21 @@ namespace FinanceAssistent
             switch (treeView1.SelectedNode.Text)
             {
                 case "Доход":
-                    FormDohod formDohod = new FormDohod(dataGridView1);
+                    FormDohod formDohod = new FormDohod(this, gState);
                     formDohod.Show();
                     break;
                 
-                case "Тип дохода":
+                case "Категория дохода":
                     FormTipDohoda formTipDohoda = new FormTipDohoda(dataGridView1);
                     formTipDohoda.Show();
                     break;
                 
                 case "Расход":
-                    
+                    FormRashod formRashod = new FormRashod(this, gState);
+                    formRashod.Show();
                     break;
                 
-                case "Тип расхода":
+                case "Категория расхода":
                     FormTipRashoda formTipRashoda = new FormTipRashoda(dataGridView1);
                     formTipRashoda.Show();
                     break;
@@ -90,7 +92,7 @@ namespace FinanceAssistent
 
                     break;
 
-                case "Тип дохода":
+                case "Категория дохода":
                     FormUpdateTipDohoda formUpdateTipDohoda = new FormUpdateTipDohoda(dataGridView1);
                     formUpdateTipDohoda.Show();
                     break;
@@ -99,7 +101,7 @@ namespace FinanceAssistent
 
                     break;
 
-                case "Тип расхода":
+                case "Категория расхода":
 
                     break;
 
@@ -120,17 +122,60 @@ namespace FinanceAssistent
             ExelExporter.ExportFromDataGridView(dataGridView1);
         }
 
-        private void построитьГрафикДоходовToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CreateGraphic()
         {
+            gState = true;
+            double sumDohod = 0;
+            double sumRashod = 0;
+
+            chart1.Legends.Add("");
             chart1.Series[0].Points.Clear();
             chart1.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            chart1.Series[0].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
-            var dt = dataBase.SelectData(Queries.SelectQueries.Dohod);
-            for(int i = 0; i < dt.Rows.Count; i++)
+            //chart1.Series[0].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+
+            bool checkDohod = double.TryParse(dataBase.SelectScalar("select sum(summa) from Dohod").ToString(), out sumDohod);
+            bool checkRashod = double.TryParse(dataBase.SelectScalar("select sum(summa) from Rashod").ToString(), out sumRashod);
+
+            if (checkDohod && checkRashod)
             {
-                chart1.Series[0].Points[0].LegendText = dt.Rows[i][0].ToString();
-                chart1.Series[0].Points.Add((double)dt.Rows[i][2]);
+                int procentDohod = (int)(sumDohod / (sumDohod + sumRashod) * 100);
+                int procentRashod = (int)(sumRashod / (sumRashod + sumDohod) * 100);
+
+                var dohod = chart1.Series[0].Points.Add(sumDohod);
+                var rashod = chart1.Series[0].Points.Add(sumRashod);
+
+                dohod.LegendText = "Доходы";
+                rashod.LegendText = "Расходы";
+
+                dohod.Label = $"{procentDohod}%";
+                rashod.Label = $"{procentRashod}%";
             }
+
+            //else if (!checkDohod) { MessageBox.Show("Доход"); }
+            //else if (!checkRashod) { MessageBox.Show("Расход"); }
+        }
+
+        public void UpdateGraphic()
+        {
+            ClearGraphic();
+            CreateGraphic();
+        }
+
+        private void ClearGraphic()
+        {
+            gState = false;
+            chart1.Legends.Clear();
+            chart1.Series[0].Points.Clear();
+        }
+
+        private void построитьГрафикToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateGraphic();
+        }
+
+        private void очиститьГрафикToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClearGraphic();
         }
     }
 }

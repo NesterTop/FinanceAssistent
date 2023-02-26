@@ -10,32 +10,32 @@ using System.Windows.Forms;
 
 namespace FinanceAssistent
 {
-    public partial class FormDohod : Form
+    public partial class FormRashod : Form
     {
-        Form1 form;
         bool state;
-        public FormDohod(Form1 form, bool state)
+        Form1 form;
+        public FormRashod(Form1 form, bool state)
         {
+            InitializeComponent();
             this.form = form;
             this.state = state;
-            InitializeComponent();
         }
 
-        private void FormDohod_Load(object sender, EventArgs e)
+        private void FormRashod_Load(object sender, EventArgs e)
         {
             this.ChangeDisigne();
-            
+
             textBox2.Text = monthCalendar1.SelectionStart.ToShortDateString();
-            
+
             using (DataBase db = new DataBase())
             {
                 db.Open();
-                DataTable dtTipDohoda = db.SelectData(Queries.SelectQueries.TipDohoda);
+                DataTable dtTipRashoda = db.SelectData(Queries.SelectQueries.TipRashoda);
                 DataTable dtSemya = db.SelectData(Queries.SelectQueries.Semya);
 
-                for (int i = 0; i < dtTipDohoda.Rows.Count; i++)
+                for (int i = 0; i < dtTipRashoda.Rows.Count; i++)
                 {
-                    comboBox1.Items.Add(dtTipDohoda.Rows[i][0]);
+                    comboBox1.Items.Add(dtTipRashoda.Rows[i][0]);
                 }
 
                 for (int i = 0; i < dtSemya.Rows.Count; i++)
@@ -43,7 +43,6 @@ namespace FinanceAssistent
                     comboBox2.Items.Add(dtSemya.Rows[i][0]);
                 }
             }
-
         }
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
@@ -53,7 +52,8 @@ namespace FinanceAssistent
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int idTipDohoda = 0;
+
+            int idTipRashoda = 0;
             int idSemya = 0;
             double summa = 0;
             string data = "";
@@ -61,14 +61,14 @@ namespace FinanceAssistent
             using (DataBase db = new DataBase())
             {
                 db.Open();
-                
+
                 if (comboBox1.SelectedItem != null)
                 {
-                    idTipDohoda = Convert.ToInt32(db.SelectData($"select id from TipDohoda where nazvanie = '{comboBox1.SelectedItem}'").Rows[0][0]);
+                    idTipRashoda = Convert.ToInt32(db.SelectData($"select id from TipRashoda where nazvanie = '{comboBox1.SelectedItem}'").Rows[0][0]);
                 }
                 else
                 {
-                    MessageBox.Show("Не выбран тип дохода");
+                    MessageBox.Show("Не выбран тип расхода");
                     return;
                 }
 
@@ -88,15 +88,15 @@ namespace FinanceAssistent
                     MessageBox.Show("Неверный формат данных в поле сумма");
                     return;
                 }
-                
+
                 data = textBox2.Text;
             }
-            
+
             using (DataBase db = new DataBase())
             {
                 db.Open();
-                db.InsertOrDeleteData(Queries.InsertQueries.GetDohodInsertSQL(idTipDohoda, idSemya, summa, data));
-                form.dataGridView1.DataSource = db.SelectData(Queries.SelectQueries.Dohod);
+                db.InsertOrDeleteData(Queries.InsertQueries.GetRashodInsertSQL(idTipRashoda, idSemya, summa, data));
+                form.dataGridView1.DataSource = db.SelectData(Queries.SelectQueries.Rashod);
                 if (state)
                 {
                     form.UpdateGraphic();

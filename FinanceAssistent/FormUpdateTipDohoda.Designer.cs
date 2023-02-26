@@ -97,7 +97,7 @@
             this.Controls.Add(this.comboBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormUpdateTipDohoda";
-            this.Text = "Изменения типа дохода";
+            this.Text = "Изменения категории дохода";
             this.Load += new System.EventHandler(this.FormUpdateTipDohoda_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
