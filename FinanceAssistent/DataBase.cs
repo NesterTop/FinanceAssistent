@@ -53,6 +53,7 @@ namespace FinanceAssistent
         public bool InsertOrDeleteData(string sql)
         {
             SqlCommand command = new SqlCommand(sql, _sqlConnection);
+
             try
             {
                 command.ExecuteNonQuery();

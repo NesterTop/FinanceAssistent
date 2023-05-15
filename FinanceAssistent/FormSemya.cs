@@ -21,16 +21,6 @@ namespace FinanceAssistent
 
         private void FormSemya_Load(object sender, EventArgs e)
         {
-            using (DataBase db = new DataBase())
-            {
-                db.Open();
-                DataTable dt = db.SelectData(Queries.SelectQueries.Users);
-                for(int i = 0; i < dt.Rows.Count; i++)
-                {
-                    comboBox1.Items.Add(dt.Rows[i][3]);
-                }
-
-            }
             this.ChangeDisigne();
         }
 
@@ -39,8 +29,7 @@ namespace FinanceAssistent
             using (DataBase db = new DataBase())
             {
                 db.Open();
-                int idUser = Convert.ToInt32(db.SelectData($"select * from Users where name = '{comboBox1.SelectedItem}'").Rows[0][0]);
-                db.InsertOrDeleteData(Queries.InsertQueries.GetSemyaInsertSQL(idUser, textBox1.Text));
+                db.InsertOrDeleteData(Queries.InsertQueries.GetSemyaInsertSQL(textBox2.Text, textBox1.Text));
                 dataGridView.DataSource = db.SelectData(Queries.SelectQueries.Semya);
                 this.Close();
             }

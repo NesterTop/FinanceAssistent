@@ -97,12 +97,6 @@
     <Compile Include="FormAdmin.Designer.cs">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAuth.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormAuth.Designer.cs">
-      <DependentUpon>FormAuth.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormDohod.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,12 +109,6 @@
     </Compile>
     <Compile Include="FormRashod.Designer.cs">
       <DependentUpon>FormRashod.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormReg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormReg.Designer.cs">
-      <DependentUpon>FormReg.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSearch.cs">
       <SubType>Form</SubType>
@@ -146,11 +134,29 @@
     <Compile Include="FormTipRashoda.Designer.cs">
       <DependentUpon>FormTipRashoda.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormUpdateDohod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdateDohod.Designer.cs">
+      <DependentUpon>FormUpdateDohod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpdateRashod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdateRashod.Designer.cs">
+      <DependentUpon>FormUpdateRashod.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUpdateTipDohoda.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormUpdateTipDohoda.Designer.cs">
       <DependentUpon>FormUpdateTipDohoda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpdateTipRashoda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdateTipRashoda.Designer.cs">
+      <DependentUpon>FormUpdateTipRashoda.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -161,17 +167,11 @@
     <EmbeddedResource Include="FormAdmin.resx">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAuth.resx">
-      <DependentUpon>FormAuth.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormDohod.resx">
       <DependentUpon>FormDohod.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRashod.resx">
       <DependentUpon>FormRashod.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormReg.resx">
-      <DependentUpon>FormReg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSearch.resx">
       <DependentUpon>FormSearch.cs</DependentUpon>
@@ -185,8 +185,17 @@
     <EmbeddedResource Include="FormTipRashoda.resx">
       <DependentUpon>FormTipRashoda.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdateDohod.resx">
+      <DependentUpon>FormUpdateDohod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdateRashod.resx">
+      <DependentUpon>FormUpdateRashod.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormUpdateTipDohoda.resx">
       <DependentUpon>FormUpdateTipDohoda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdateTipRashoda.resx">
+      <DependentUpon>FormUpdateTipRashoda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

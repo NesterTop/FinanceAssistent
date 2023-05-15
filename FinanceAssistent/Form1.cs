@@ -23,8 +23,8 @@ namespace FinanceAssistent
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            FormAuth formAuth = new FormAuth(this);
-            formAuth.Show();
+            //FormAuth formAuth = new FormAuth(this);
+            //formAuth.Show();
             dataBase.Open();
             
         }
@@ -89,20 +89,19 @@ namespace FinanceAssistent
             switch (treeView1.SelectedNode.Text)
             {
                 case "Доход":
-
+                    new FormUpdateDohod(dataGridView1).Show();
                     break;
 
                 case "Категория дохода":
-                    FormUpdateTipDohoda formUpdateTipDohoda = new FormUpdateTipDohoda(dataGridView1);
-                    formUpdateTipDohoda.Show();
+                    new FormUpdateTipDohoda(dataGridView1).Show();
                     break;
 
                 case "Расход":
-
+                    new FormUpdateRashod(dataGridView1).Show();
                     break;
 
                 case "Категория расхода":
-
+                    new FormUpdateTipRashoda(dataGridView1).Show();
                     break;
 
                 case "Семья":
@@ -177,5 +176,7 @@ namespace FinanceAssistent
         {
             ClearGraphic();
         }
+
+        
     }
 }

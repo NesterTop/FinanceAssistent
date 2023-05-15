@@ -7,24 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace FinanceAssistent
 {
-    public partial class FormUpdateTipDohoda : Form
+    public partial class FormUpdateTipRashoda : Form
     {
         DataGridView dataGrid;
-        public FormUpdateTipDohoda(DataGridView dataGrid)
+        public FormUpdateTipRashoda(DataGridView dataGrid)
         {
-            this.dataGrid = dataGrid;
             InitializeComponent();
+            this.dataGrid = dataGrid;
         }
 
-        private void FormUpdateTipDohoda_Load(object sender, EventArgs e)
+        private void FormUpdateTipRashoda_Load(object sender, EventArgs e)
         {
             using (DataBase db = new DataBase())
             {
                 db.Open();
-                DataTable dt = db.SelectData(Queries.SelectQueries.TipDohoda);
+                DataTable dt = db.SelectData(Queries.SelectQueries.TipRashoda);
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     comboBox1.Items.Add(dt.Rows[i][0]);
@@ -40,12 +41,12 @@ namespace FinanceAssistent
         {
             string name = comboBox1.SelectedItem.ToString();
             string rename = textBox1.Text;
-            
+
             using (DataBase db = new DataBase())
             {
                 db.Open();
-                db.InsertOrDeleteData(Queries.UpdateQueries.GetTipDohodaUpdateSQL(name, rename));
-                dataGrid.DataSource = db.SelectData(Queries.SelectQueries.TipDohoda);
+                db.InsertOrDeleteData(Queries.UpdateQueries.GetTipRashodaUpdateSQL(name, rename));
+                dataGrid.DataSource = db.SelectData(Queries.SelectQueries.TipRashoda);
             }
             this.Close();
         }
