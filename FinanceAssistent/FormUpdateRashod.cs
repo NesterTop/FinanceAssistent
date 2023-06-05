@@ -27,6 +27,7 @@ namespace FinanceAssistent
             dataGrid.SelectionChanged += dataGridView1_SelectionChanged;
             UpdateData();
             dataGrid.Rows[0].Selected = true;
+            this.ChangeDisigne();
         }
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)

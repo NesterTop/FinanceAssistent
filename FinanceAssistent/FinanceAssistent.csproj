@@ -79,6 +79,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBase.cs" />
+    <Compile Include="DataBaseDataSet.cs">
+      <DependentUpon>DataBaseDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataBaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -96,6 +99,36 @@
     </Compile>
     <Compile Include="FormAdmin.Designer.cs">
       <DependentUpon>FormAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDeleteDohod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDeleteDohod.Designer.cs">
+      <DependentUpon>FormDeleteDohod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDeleteFamily.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDeleteFamily.Designer.cs">
+      <DependentUpon>FormDeleteFamily.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDeleteRashod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDeleteRashod.Designer.cs">
+      <DependentUpon>FormDeleteRashod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDeleteTipDohoda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDeleteTipDohoda.Designer.cs">
+      <DependentUpon>FormDeleteTipDohoda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDeleteTipRashoda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDeleteTipRashoda.Designer.cs">
+      <DependentUpon>FormDeleteTipRashoda.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDohod.cs">
       <SubType>Form</SubType>
@@ -140,6 +173,12 @@
     <Compile Include="FormUpdateDohod.Designer.cs">
       <DependentUpon>FormUpdateDohod.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormUpdateFamily.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdateFamily.Designer.cs">
+      <DependentUpon>FormUpdateFamily.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUpdateRashod.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +206,21 @@
     <EmbeddedResource Include="FormAdmin.resx">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDeleteDohod.resx">
+      <DependentUpon>FormDeleteDohod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDeleteFamily.resx">
+      <DependentUpon>FormDeleteFamily.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDeleteRashod.resx">
+      <DependentUpon>FormDeleteRashod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDeleteTipDohoda.resx">
+      <DependentUpon>FormDeleteTipDohoda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDeleteTipRashoda.resx">
+      <DependentUpon>FormDeleteTipRashoda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDohod.resx">
       <DependentUpon>FormDohod.cs</DependentUpon>
     </EmbeddedResource>
@@ -187,6 +241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUpdateDohod.resx">
       <DependentUpon>FormUpdateDohod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdateFamily.resx">
+      <DependentUpon>FormUpdateFamily.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUpdateRashod.resx">
       <DependentUpon>FormUpdateRashod.cs</DependentUpon>

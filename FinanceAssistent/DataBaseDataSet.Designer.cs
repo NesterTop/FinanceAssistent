@@ -792,7 +792,7 @@ namespace FinanceAssistent {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class RashodDataTable : global::System.Data.TypedTableBase<RashodRow> {
             
-            private global::System.Data.DataColumn columnid;
+            private global::System.Data.DataColumn _columnid__INT_;
             
             private global::System.Data.DataColumn columnid_tip_rashoda;
             
@@ -837,9 +837,9 @@ namespace FinanceAssistent {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn idColumn {
+            public global::System.Data.DataColumn _id__INT_Column {
                 get {
-                    return this.columnid;
+                    return this._columnid__INT_;
                 }
             }
             
@@ -945,7 +945,7 @@ namespace FinanceAssistent {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnid = base.Columns["id"];
+                this._columnid__INT_ = base.Columns["id (INT)"];
                 this.columnid_tip_rashoda = base.Columns["id_tip_rashoda"];
                 this.columnid_semya = base.Columns["id_semya"];
                 this.columnsumma = base.Columns["summa"];
@@ -955,8 +955,10 @@ namespace FinanceAssistent {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid);
+                this._columnid__INT_ = new global::System.Data.DataColumn("id (INT)", typeof(int), null, global::System.Data.MappingType.Element);
+                this._columnid__INT_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnid__INT_");
+                this._columnid__INT_.ExtendedProperties.Add("Generator_UserColumnName", "id (INT)");
+                base.Columns.Add(this._columnid__INT_);
                 this.columnid_tip_rashoda = new global::System.Data.DataColumn("id_tip_rashoda", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_tip_rashoda);
                 this.columnid_semya = new global::System.Data.DataColumn("id_semya", typeof(string), null, global::System.Data.MappingType.Element);
@@ -965,11 +967,11 @@ namespace FinanceAssistent {
                 base.Columns.Add(this.columnsumma);
                 this.columndata = new global::System.Data.DataColumn("data", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndata);
-                this.columnid.AutoIncrement = true;
-                this.columnid.AutoIncrementSeed = -1;
-                this.columnid.AutoIncrementStep = -1;
-                this.columnid.AllowDBNull = false;
-                this.columnid.ReadOnly = true;
+                this._columnid__INT_.AutoIncrement = true;
+                this._columnid__INT_.AutoIncrementSeed = -1;
+                this._columnid__INT_.AutoIncrementStep = -1;
+                this._columnid__INT_.AllowDBNull = false;
+                this._columnid__INT_.ReadOnly = true;
                 this.columnid_tip_rashoda.AllowDBNull = false;
                 this.columnid_semya.AllowDBNull = false;
                 this.columnid_semya.MaxLength = 10;
@@ -2368,12 +2370,12 @@ namespace FinanceAssistent {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int id {
+            public int _id__INT_ {
                 get {
-                    return ((int)(this[this.tableRashod.idColumn]));
+                    return ((int)(this[this.tableRashod._id__INT_Column]));
                 }
                 set {
-                    this[this.tableRashod.idColumn] = value;
+                    this[this.tableRashod._id__INT_Column] = value;
                 }
             }
             
@@ -3333,7 +3335,7 @@ namespace FinanceAssistent.DataBaseDataSetTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Rashod";
-            tableMapping.ColumnMappings.Add("id", "id");
+            tableMapping.ColumnMappings.Add("id", "id (INT)");
             tableMapping.ColumnMappings.Add("id_tip_rashoda", "id_tip_rashoda");
             tableMapping.ColumnMappings.Add("id_semya", "id_semya");
             tableMapping.ColumnMappings.Add("summa", "summa");

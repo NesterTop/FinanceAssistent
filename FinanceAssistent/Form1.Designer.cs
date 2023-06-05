@@ -28,20 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Категория дохода");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Доход", new System.Windows.Forms.TreeNode[] {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Категории дохода");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Доходы", new System.Windows.Forms.TreeNode[] {
             treeNode1});
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Категория расхода");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Расход", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Категории расхода");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Расходы", new System.Windows.Forms.TreeNode[] {
             treeNode3});
             System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Семья");
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.действияСТаблицейToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,26 +67,48 @@
             // treeView1
             // 
             this.treeView1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.treeView1.ImageIndex = 0;
+            this.treeView1.ImageList = this.imageList1;
             this.treeView1.Location = new System.Drawing.Point(12, 27);
             this.treeView1.Name = "treeView1";
+            treeNode1.ImageIndex = 1;
             treeNode1.Name = "Узел1";
-            treeNode1.Text = "Категория дохода";
+            treeNode1.SelectedImageKey = "category_icon_242508.ico";
+            treeNode1.Text = "Категории дохода";
+            treeNode2.ImageIndex = 0;
             treeNode2.Name = "Узел0";
-            treeNode2.Text = "Доход";
+            treeNode2.SelectedImageKey = "3668841-earnings-income-salary-wallet_108032.ico";
+            treeNode2.Text = "Доходы";
+            treeNode3.ImageIndex = 1;
             treeNode3.Name = "Узел3";
-            treeNode3.Text = "Категория расхода";
+            treeNode3.SelectedImageKey = "category_icon_242508.ico";
+            treeNode3.Text = "Категории расхода";
+            treeNode4.ImageIndex = 2;
             treeNode4.Name = "Узел2";
-            treeNode4.Text = "Расход";
+            treeNode4.SelectedImageKey = "bill_invoice_receipt_expenses_internet_icon_142257.ico";
+            treeNode4.Text = "Расходы";
+            treeNode5.ImageIndex = 3;
             treeNode5.Name = "Узел0";
+            treeNode5.SelectedImageKey = "Family_icon-icons.com_54182.ico";
             treeNode5.Text = "Семья";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode2,
             treeNode4,
             treeNode5});
+            this.treeView1.SelectedImageIndex = 0;
             this.treeView1.ShowLines = false;
             this.treeView1.Size = new System.Drawing.Size(359, 167);
             this.treeView1.TabIndex = 2;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "3668841-earnings-income-salary-wallet_108032.ico");
+            this.imageList1.Images.SetKeyName(1, "category_icon_242508.ico");
+            this.imageList1.Images.SetKeyName(2, "bill_invoice_receipt_expenses_internet_icon_142257.ico");
+            this.imageList1.Images.SetKeyName(3, "Family_icon-icons.com_54182.ico");
             // 
             // dataGridView1
             // 
@@ -111,6 +135,7 @@
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Location = new System.Drawing.Point(377, 27);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -121,10 +146,10 @@
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Size = new System.Drawing.Size(395, 422);
             this.dataGridView1.TabIndex = 3;
-
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.действияСТаблицейToolStripMenuItem,
             this.графикToolStripMenuItem,
@@ -162,6 +187,7 @@
             this.удалитьДанныеToolStripMenuItem.Name = "удалитьДанныеToolStripMenuItem";
             this.удалитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.удалитьДанныеToolStripMenuItem.Text = "Удалить данные";
+            this.удалитьДанныеToolStripMenuItem.Click += new System.EventHandler(this.удалитьДанныеToolStripMenuItem_Click);
             // 
             // изменитьДанныеToolStripMenuItem
             // 
@@ -220,7 +246,7 @@
             // 
             this.найтиТоварToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("найтиТоварToolStripMenuItem.Image")));
             this.найтиТоварToolStripMenuItem.Name = "найтиТоварToolStripMenuItem";
-            this.найтиТоварToolStripMenuItem.Size = new System.Drawing.Size(103, 21);
+            this.найтиТоварToolStripMenuItem.Size = new System.Drawing.Size(112, 21);
             this.найтиТоварToolStripMenuItem.Text = "Найти товар";
             this.найтиТоварToolStripMenuItem.Click += new System.EventHandler(this.найтиТоварToolStripMenuItem_Click);
             // 
@@ -287,6 +313,7 @@
         private System.Windows.Forms.ToolStripMenuItem изменитьДанныеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem найтиТоварToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem очиститьГрафикToolStripMenuItem;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
 

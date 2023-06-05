@@ -23,10 +23,7 @@ namespace FinanceAssistent
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //FormAuth formAuth = new FormAuth(this);
-            //formAuth.Show();
             dataBase.Open();
-            
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
@@ -34,16 +31,16 @@ namespace FinanceAssistent
 
             switch (e.Node.Text)
             {
-                case "Доход":
+                case "Доходы":
                     dataGridView1.DataSource = dataBase.SelectData(Queries.SelectQueries.Dohod);
                     break;
-                case "Категория дохода":
+                case "Категории дохода":
                     dataGridView1.DataSource = dataBase.SelectData(Queries.SelectQueries.TipDohoda);
                     break;
-                case "Расход":
+                case "Расходы":
                     dataGridView1.DataSource = dataBase.SelectData(Queries.SelectQueries.Rashod);
                     break;
-                case "Категория расхода":
+                case "Категории расхода":
                     dataGridView1.DataSource = dataBase.SelectData(Queries.SelectQueries.TipRashoda);
                     break;
                 case "Семья":
@@ -57,22 +54,22 @@ namespace FinanceAssistent
         {
             switch (treeView1.SelectedNode.Text)
             {
-                case "Доход":
+                case "Доходы":
                     FormDohod formDohod = new FormDohod(this, gState);
                     formDohod.Show();
                     break;
                 
-                case "Категория дохода":
+                case "Категории дохода":
                     FormTipDohoda formTipDohoda = new FormTipDohoda(dataGridView1);
                     formTipDohoda.Show();
                     break;
                 
-                case "Расход":
+                case "Расходы":
                     FormRashod formRashod = new FormRashod(this, gState);
                     formRashod.Show();
                     break;
                 
-                case "Категория расхода":
+                case "Категории расхода":
                     FormTipRashoda formTipRashoda = new FormTipRashoda(dataGridView1);
                     formTipRashoda.Show();
                     break;
@@ -88,24 +85,50 @@ namespace FinanceAssistent
         {
             switch (treeView1.SelectedNode.Text)
             {
-                case "Доход":
+                case "Доходы":
                     new FormUpdateDohod(dataGridView1).Show();
                     break;
 
-                case "Категория дохода":
+                case "Категории дохода":
                     new FormUpdateTipDohoda(dataGridView1).Show();
                     break;
 
-                case "Расход":
+                case "Расходы":
                     new FormUpdateRashod(dataGridView1).Show();
                     break;
 
-                case "Категория расхода":
+                case "Категории расхода":
                     new FormUpdateTipRashoda(dataGridView1).Show();
                     break;
 
                 case "Семья":
+                    new FormUpdateFamily(dataGridView1).Show(); 
+                    break;
+            }
+        }
 
+        private void удалитьДанныеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            switch (treeView1.SelectedNode.Text)
+            {
+                case "Доходы":
+                    new FormDeleteDohod(dataGridView1).Show();
+                    break;
+
+                case "Категории дохода":
+                    new FormDeleteTipDohoda(dataGridView1).Show();
+                    break;
+
+                case "Расходы":
+                    new FormDeleteRashod(dataGridView1).Show();
+                    break;
+
+                case "Категории расхода":
+                    new FormDeleteTipRashoda(dataGridView1).Show();
+                    break;
+
+                case "Семья":
+                    new FormDeleteFamily(dataGridView1).Show();
                     break;
             }
         }
@@ -130,15 +153,14 @@ namespace FinanceAssistent
             chart1.Legends.Add("");
             chart1.Series[0].Points.Clear();
             chart1.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            //chart1.Series[0].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
 
             bool checkDohod = double.TryParse(dataBase.SelectScalar("select sum(summa) from Dohod").ToString(), out sumDohod);
             bool checkRashod = double.TryParse(dataBase.SelectScalar("select sum(summa) from Rashod").ToString(), out sumRashod);
 
             if (checkDohod && checkRashod)
             {
-                int procentDohod = (int)(sumDohod / (sumDohod + sumRashod) * 100);
-                int procentRashod = (int)(sumRashod / (sumRashod + sumDohod) * 100);
+                int procentDohod = Convert.ToInt32(sumDohod / (sumDohod + sumRashod) * 100);
+                int procentRashod = Convert.ToInt32(sumRashod / (sumRashod + sumDohod) * 100);
 
                 var dohod = chart1.Series[0].Points.Add(sumDohod);
                 var rashod = chart1.Series[0].Points.Add(sumRashod);
@@ -149,9 +171,6 @@ namespace FinanceAssistent
                 dohod.Label = $"{procentDohod}%";
                 rashod.Label = $"{procentRashod}%";
             }
-
-            //else if (!checkDohod) { MessageBox.Show("Доход"); }
-            //else if (!checkRashod) { MessageBox.Show("Расход"); }
         }
 
         public void UpdateGraphic()
