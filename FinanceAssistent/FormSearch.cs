@@ -20,7 +20,7 @@ namespace FinanceAssistent
 
         private void FormSearch_Load(object sender, EventArgs e)
         {
-            this.ChangeDisigne();
+            //this.ChangeDisigne();
         }
 
         private void webView21_CoreWebView2InitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
@@ -35,6 +35,11 @@ namespace FinanceAssistent
         private void button1_Click(object sender, EventArgs e)
         {
             webView.Source = new Uri($"https://market.yandex.ru/search?text={textBox1.Text}&cvredirect=0&track=redirbarup");
+        }
+
+        private void FormSearch_SizeChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
