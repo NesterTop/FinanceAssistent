@@ -173,6 +173,34 @@ namespace FinanceAssistent
             }
         }
 
+        public void UpdateMoneyData()
+        {
+            double sumDohod = 0;
+            double sumRashod = 0;
+
+            using(DataBase dataBase = new DataBase())
+            {
+                dataBase.Open();
+
+                string dohod = dataBase.SelectData("select SUM(summa) from Dohod where MONTH(data) = MONTH(SYSDATETIME())").Rows[0].ItemArray[0].ToString();
+                string rashod = dataBase.SelectData("select SUM(summa) from Rashod where MONTH(data) = MONTH(SYSDATETIME())").Rows[0].ItemArray[0].ToString();
+
+                if (!string.IsNullOrEmpty(dohod))
+                {
+                    double.TryParse(dohod, out sumDohod);
+                }
+                
+                if (!string.IsNullOrEmpty(rashod))
+                {
+                    double.TryParse(rashod, out sumRashod);
+                }
+            }
+
+            label1.Text = $"Доходы за месяц: {sumDohod} руб.";
+            label2.Text = $"Расходы за месяц: {sumRashod} руб.";
+            label3.Text = $"Остаток: {sumDohod - sumRashod} руб.";
+        }
+
         public void UpdateGraphic()
         {
             ClearGraphic();
@@ -196,6 +224,14 @@ namespace FinanceAssistent
             ClearGraphic();
         }
 
-        
+        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            UpdateMoneyData();
+        }
+
+        private void dataGridView1_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            UpdateMoneyData();
+        }
     }
 }
