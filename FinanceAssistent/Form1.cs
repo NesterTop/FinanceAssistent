@@ -233,5 +233,10 @@ namespace FinanceAssistent
         {
             UpdateMoneyData();
         }
+
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            UpdateMoneyData();
+        }
     }
 }

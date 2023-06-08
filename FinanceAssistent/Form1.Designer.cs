@@ -61,10 +61,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // treeView1
@@ -149,6 +151,7 @@
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Size = new System.Drawing.Size(395, 341);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
             this.dataGridView1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
             this.dataGridView1.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGridView1_RowsRemoved);
             // 
@@ -264,7 +267,7 @@
             series1.ChartArea = "ChartArea1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(363, 249);
+            this.chart1.Size = new System.Drawing.Size(363, 264);
             this.chart1.TabIndex = 5;
             this.chart1.Text = "chart1";
             // 
@@ -274,7 +277,7 @@
             this.panel1.Controls.Add(this.chart1);
             this.panel1.Location = new System.Drawing.Point(12, 200);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(359, 249);
+            this.panel1.Size = new System.Drawing.Size(359, 264);
             this.panel1.TabIndex = 6;
             // 
             // label1
@@ -282,7 +285,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(377, 371);
+            this.label1.Location = new System.Drawing.Point(3, 5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(176, 26);
             this.label1.TabIndex = 7;
@@ -293,7 +296,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(377, 397);
+            this.label2.Location = new System.Drawing.Point(3, 31);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(181, 26);
             this.label2.TabIndex = 8;
@@ -304,21 +307,30 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(169)))), ((int)(((byte)(0)))));
-            this.label3.Location = new System.Drawing.Point(377, 423);
+            this.label3.Location = new System.Drawing.Point(3, 57);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(90, 26);
             this.label3.TabIndex = 9;
             this.label3.Text = "Остаток";
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Location = new System.Drawing.Point(377, 374);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(395, 90);
+            this.panel2.TabIndex = 10;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(784, 461);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(784, 476);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.treeView1);
@@ -334,6 +346,8 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -359,6 +373,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 

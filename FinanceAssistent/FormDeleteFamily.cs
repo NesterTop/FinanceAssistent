@@ -30,12 +30,19 @@ namespace FinanceAssistent
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (DataBase db = new DataBase())
+            if (MessageBox.Show("При удалении данной записи будут удалены данные в другой таблице", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
-                db.Open();
-                db.InsertOrDeleteData(Queries.DeleteQueries.GetFamilyDeleteSQL(username, name));
-                dataGrid.DataSource = db.SelectData(Queries.SelectQueries.Semya);
+                using (DataBase db = new DataBase())
+                {
+                    db.Open();
+                    db.InsertOrDeleteData($"delete dohod where id_semya = (select id from Semya where username = '{username}' and name = '{name}')");
+                    db.InsertOrDeleteData($"delete rashod where id_semya = (select id from Semya where username = '{username}' and name = '{name}')");
+                    db.InsertOrDeleteData(Queries.DeleteQueries.GetFamilyDeleteSQL(username, name));
+                    dataGrid.DataSource = db.SelectData(Queries.SelectQueries.Semya);
+                }
             }
+            else return;
+            
 
             this.Close();
         }

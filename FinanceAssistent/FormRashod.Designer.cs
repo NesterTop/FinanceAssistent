@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRashod));
             this.button1 = new System.Windows.Forms.Button();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.label4 = new System.Windows.Forms.Label();
@@ -150,6 +151,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormRashod";
             this.Text = "Добавление расхода";
             this.Load += new System.EventHandler(this.FormRashod_Load);
