@@ -136,6 +136,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "FormDeleteDohod";
             this.Text = "Удаление дохода";
             this.Load += new System.EventHandler(this.FormDeleteDohod_Load);

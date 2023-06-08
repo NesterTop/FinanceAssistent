@@ -11,7 +11,8 @@ namespace FinanceAssistent
     public static class FormExtension
     {
         public static void ChangeDisigne(this Form form)
-        {    
+        {
+            form.MaximizeBox = false;
             form.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             foreach(Control c in form.Controls)
             {

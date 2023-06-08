@@ -92,6 +92,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "FormDeleteFamily";
             this.Text = "Удаление члена семьи";
             this.Load += new System.EventHandler(this.FormDeleteFamily_Load);
